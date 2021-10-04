@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   bool _change = false;
+  double _end =400;
 
   void _incrementCounter() {
     setState(() {
@@ -62,6 +63,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: _change ? 200 : 100,
                 width: _change ? 200: 100,
                 color: _change? Colors.green: Colors.red
+            ),
+
+            TweenAnimationBuilder(
+                tween: Tween<double>(begin:100.0, end: 200.0),
+                onEnd:(){
+                  setState(()
+                  {
+                    _end = _end -50;
+                  });
+                },
+                duration: Duration(seconds:1),
+                builder: (context, double value,child){
+                  print(value);
+                  return Container(
+                    width:value,
+                    height:value,
+                    color:Colors.blue,
+                  );
+                },
             ),
           ],
         ),
