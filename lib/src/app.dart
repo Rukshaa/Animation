@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       home: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-        title: Text("Animation"),
+        title: Center(child: Text("Animation")),
           ),
           body:CatAnimation(),
         ),
